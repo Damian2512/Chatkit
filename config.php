@@ -4,15 +4,18 @@ $conn = mysqli_connect('localhost', 'root', '', 'chat');
 
 mysqli_set_charset($conn, 'utf8');
 
-function showChatBox($user_id)
-{
+function showChatBox($user_id, $path = null) {
 	global $conn;
-	$chat = include 'chatBox.php';
+	if(is_null($path)){
+		$chat = include 'chatBox.php';
+	}else{
+		$chat = include $path.'chatBox.php';
+	}
+
 	return $chat;
 }
 
-function auth()
-{
+function auth() {
 	global $conn;
 	if (isset($_SESSION['name'])) {
 
@@ -25,17 +28,26 @@ function auth()
 	}
 }
 
-function activeChats(){
+function activeChats() {
 	return isset($_SESSION['chats']) ? $_SESSION['chats'] : [];
 }
 
-function addChat($id){
+function addChat($id) {
 	$chats = isset($_SESSION['chats']) ? $_SESSION['chats'] : [];
 
-	if (!in_array($id, $chats)){
-$chats[$id] = $id;
+	if (!in_array($id, $chats)) {
+		$chats[$id] = $id;
 	}
-$_SESSION['chats'] = $chats;
+	$_SESSION['chats'] = $chats;
+}
+
+function removeChat($id) {
+	$chats = isset($_SESSION['chats']) ? $_SESSION['chats'] : [];
+
+	if (!in_array($id, $chats)) {
+		unset($chats[$id]);
+	}
+	$_SESSION['chats'] = $chats;
 }
 
 ?>

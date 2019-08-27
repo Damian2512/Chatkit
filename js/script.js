@@ -1,6 +1,11 @@
 $(document).on('click', '.close-chat', function (event) {
 	event.preventDefault();
-	$(this).closest('.chat-box').remove();
+	var user_id = $(this).closest('.chat-box').attr('user-id');
+	$.get('ajax/ChatBox.php', {remove: user_id}, function (res) {
+		$('.chat-container').html(res);
+		// console.log(res);
+	});
+	// $(this).closest('.chat-box').remove();
 });
 
 var minimize = false;
@@ -22,7 +27,7 @@ $(document).on('click', '.sidebar-user', function (event) {
 	var user_id = $(this).attr('user-id');
 	var count_chat_box = $('.chat-box').length;
 	if (count_chat_box < 3) {
-		$.get('ajax/openChatBox.php', {id: user_id}, function (res) {
+		$.get('ajax/ChatBox.php', {id: user_id}, function (res) {
 			$('.chat-container').append(res);
 		});
 	}
