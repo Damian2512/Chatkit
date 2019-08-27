@@ -1,0 +1,33 @@
+html,body{
+    height: 100%;
+}
+
+/*.container-fluid,.row,.sidebar{*/
+/*    height: 100%;*/
+/*   }*/
+
+.sidebar{
+
+}
+
+.chat-container{
+ background-color: red;
+    height: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.chat-box, .chat-box .panel{
+    height: 300px;
+    width: 300px;
+    margin-top: -200px;
+    position: relative;
+}
+
+.panel-footer{
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
