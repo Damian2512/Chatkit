@@ -11,8 +11,8 @@ html,body{
 }
 
 .chat-container{
- background-color: red;
-    height: 20px;
+
+    height: 0px;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -21,9 +21,14 @@ html,body{
 .chat-box, .chat-box .panel{
     height: 400px;
     width: 300px;
-    margin-top: -202px;
+    margin-top: -200px;
     position: relative;
     margin-right: 5px;
+}
+
+.chat-box .panel-body{
+  overflow: auto;
+    height: 320px;
 }
 
 .panel-footer{

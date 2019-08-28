@@ -22,6 +22,17 @@ $(document).on('click', '.panel-heading', function (event) {
 	}
 });
 
+$(function () {
+	var chat_body = $('.panel-body');
+	chat_body.each(function (index, el) {
+		var chat_height = $(this).height() * 999999999999;
+		$(this).animate({
+			scrollTop: chat_height,
+		},100);
+	});
+});
+
+
 $(document).on('click', '.sidebar-user', function (event) {
 	event.preventDefault();
 	var user_id = $(this).attr('user-id');
