@@ -3,7 +3,7 @@ include 'config.php';
 if (isset($_POST['submit'])) {
 	$name = $_POST['name'];
 
-	$sql = mysqli_query($conn, "SELECT * FROM `users` WHERE `name` = '" . $name . "'");
+	$sql = mysqli_query($con, "SELECT * FROM `users` WHERE `name` = '" . $name . "'");
 	if (mysqli_num_rows($sql) > 0) {
 
 		$user = mysqli_fetch_array($sql);

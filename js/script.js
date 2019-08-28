@@ -31,6 +31,18 @@ $(document).on('click', '.sidebar-user', function (event) {
 			$('.chat-container').append(res);
 		});
 	}
+});
 
+$(document).on('keyup', '.send-message', function (event) {
+	var user_id = $(this).closest('.chat-box').attr('user-id');
+	var message = $(this).val();
+	var el = $(this);
 
+	if (event.keyCode == 13) {
+
+		$.post('ajax/sendMessage.php', {to:user_id, message:message}, function (res) {
+			$('.chat-user-' + user_id).append(res);
+			el.val('');
+		});
+	}
 });

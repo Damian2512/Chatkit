@@ -1,11 +1,12 @@
 <?php
 session_start();
-$conn = mysqli_connect('localhost', 'root', '', 'chat');
+$con = mysqli_connect('localhost', 'root', '', 'chat');
 
-mysqli_set_charset($conn, 'utf8');
+mysqli_set_charset($con, 'utf8');
+
 
 function showChatBox($user_id, $path = null) {
-	global $conn;
+	global $con;
 	if(is_null($path)){
 		$chat = include 'chatBox.php';
 	}else{
@@ -16,10 +17,10 @@ function showChatBox($user_id, $path = null) {
 }
 
 function auth() {
-	global $conn;
+	global $con;
 	if (isset($_SESSION['name'])) {
 
-		$sql = mysqli_query($conn, "SELECT * FROM `users` WHERE `name` = '" . $_SESSION['name'] . "'");
+		$sql = mysqli_query($con, "SELECT * FROM `users` WHERE `name` = '" . $_SESSION['name'] . "'");
 
 		$user = mysqli_fetch_object($sql);
 		return $user;
@@ -27,6 +28,18 @@ function auth() {
 		return [];
 	}
 }
+
+function user($id) {
+	global $con;
+
+
+		$sql = mysqli_query($con, "SELECT * FROM `users` WHERE `id` = ".$id);
+
+		$user = mysqli_fetch_object($sql);
+		return $user;
+
+}
+
 
 function activeChats() {
 	return isset($_SESSION['chats']) ? $_SESSION['chats'] : [];

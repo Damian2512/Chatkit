@@ -29,7 +29,7 @@ if (!isset($_SESSION['name'])) {
 		<div class="col-md-2 sidebar">
 
 			<?php
-			$query = mysqli_query($conn, "SELECT * FROM `users` WHERE `name` != '" . $_SESSION['name'] . "'");
+			$query = mysqli_query($con, "SELECT * FROM `users` WHERE `name` != '" . $_SESSION['name'] . "'");
 			?>
 			<ul>
 				<?php
