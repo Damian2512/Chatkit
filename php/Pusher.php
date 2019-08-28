@@ -1,8 +1,3 @@
-<!--https://github.com/pusher/pusher-http-php/blob/b3984a9f6fd65e39b7d6de9bb7d67656ff286f0f/lib/Pusher.php
-
-pusher versie die gebruikt wordt in het filmpje
--->
-
 <?php
 /*
         Pusher PHP Library

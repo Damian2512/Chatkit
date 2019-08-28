@@ -50,8 +50,13 @@ function addChat($id) {
 
 	if (!in_array($id, $chats)) {
 		$chats[$id] = $id;
+		$_SESSION['chats'] = $chats;
+
+		return true;
+	} else{
+		return false;
 	}
-	$_SESSION['chats'] = $chats;
+
 }
 
 function removeChat($id) {

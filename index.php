@@ -1,7 +1,3 @@
-<!--https://www.youtube.com/watch?v=Z9dHTXyuBYk&list=PL5QMKjKY4bJoYNMIIE25o2gof2B2BFjHC&index=7
--->
-
-
 <?php
 include 'config.php';
 
@@ -9,7 +5,6 @@ if (!isset($_SESSION['name'])) {
 	header('location:login.php');
 	die();
 }
-//unset($_SESSION['chats']);
 ?>
 <!DOCTYPE html>
 <html lang="" auth="<?php echo auth()->id;?>">
@@ -60,8 +55,7 @@ if (!isset($_SESSION['name'])) {
 
 
 <!--JQuery-->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
