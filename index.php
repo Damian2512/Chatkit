@@ -29,12 +29,13 @@ if (!isset($_SESSION['name'])) {
 		<div class="col-md-2 sidebar">
 
 			<?php
-			$query = mysqli_query($conn, "SELECT * FROM `users` WHERE `name` != '".$_SESSION['name']."'");
+			$query = mysqli_query($conn, "SELECT * FROM `users` WHERE `name` != '" . $_SESSION['name'] . "'");
 			?>
 			<ul>
 				<?php
 				while ($row = mysqli_fetch_array($query)) { ?>
-					<li><a href="javascript:;" class="sidebar-user" user-id="<?= $row['id']; ?>"><?= $row['name']; ?></a></li>
+					<li><a href="javascript:;" class="sidebar-user"
+						   user-id="<?= $row['id']; ?>"><?= $row['name']; ?></a></li>
 				<?php } ?>
 			</ul>
 
@@ -52,7 +53,6 @@ if (!isset($_SESSION['name'])) {
 		</div>
 	</div>
 </div>
-
 
 
 <!--JQuery-->
